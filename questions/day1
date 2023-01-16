@@ -1,0 +1,41 @@
+1. How much is the current memory capacity of a canister?
+I'm not completely sure about this.
+
+2. What is the issue with the following code sample?
+
+actor {
+  let counter : Nat = 0;
+  public func increment_counter() : async () {
+    counter := counter + 1;
+  };
+}
+
+The first error you'll get is "expected mutable assignment target"
+its because the variable counter is declared as immutable which means that the value declared can't be changed.
+To fix that you have to change the keyword from let to var.
+
+
+3.What is the issue with the following code sample?
+actor {
+  var message : Text = 0;
+
+  public query func change_message(new_message : Text) : async () {
+    message := new_message;
+    return;
+  };
+  
+  public query func see_message() : async Text {
+    return(message);
+  };
+}
+the error you'll get "does not have expected type Text" a syntax error, to fix the error you just have to use the "quotation marks" around the text
+
+actor {
+  var message : Text = "0";
+  
+  
+4. False or True: we can remove the keyword async for return argument of a query function since queries are faster to answer.
+
+  False. The async keyword is used to indicate that a function is asynchronous, meaning that it can run concurrently with other code and does not block the execution 
+  of other code while it is running. In the case of a query function, 
+  it is used to indicate that the function does not modify the state of the canister and it is expected to return faster than a function that modifies the state.
