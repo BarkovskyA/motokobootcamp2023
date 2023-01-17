@@ -1,5 +1,5 @@
 1. How much is the current memory capacity of a canister?
-I'm not completely sure about this.
+Canisters can now hold 48GiB of stable memory
 
 2. What is the issue with the following code sample?
 
